@@ -30,11 +30,7 @@
 	<div class="container">
 		<h1 class="text-secondary border border-success border-top-0 border-left-0 border-rigth-0" th:text="${titulo}">
 		</h1>
-		<div th:object="${cliente}" th:remove="tag">
-			<ul th:if="${#fields.hasErrors('*')}" class="alert alert-danger">
-                <li th:each="err: ${#fields.errors('*')}" th:text="${err}"></li>
-            </ul>
-        </div>
+		
 		<form th:action="@{/form}" th:object="${cliente}" method="post">
 			<table class="table table-bordered">
 				<div class="form-group row">
@@ -76,6 +72,11 @@
 			</table>
 			<td><input  type="hidden" th:field="*{id}"/></td>
 		</form>
+        <div th:object="${cliente}" th:remove="tag">
+			<ul th:if="${#fields.hasErrors('*')}" class="alert alert-danger">
+                <li th:each="err: ${#fields.errors('*')}" th:text="${err}"></li>
+            </ul>
+        </div>
 	</div>
 </body>
 
