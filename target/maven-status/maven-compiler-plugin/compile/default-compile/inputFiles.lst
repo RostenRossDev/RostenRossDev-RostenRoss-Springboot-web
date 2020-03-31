@@ -1,5 +1,7 @@
 /workspace/RostenRossDev-RostenRoss-Springboot-web/src/main/java/com/rostenross/springboot/app/controllers/ClienteController.java
+/workspace/RostenRossDev-RostenRoss-Springboot-web/src/main/java/com/rostenross/springboot/app/models/service/ClienteServiceImpl.java
 /workspace/RostenRossDev-RostenRoss-Springboot-web/src/main/java/com/rostenross/springboot/app/models/dao/ClienteDaoImpl.java
 /workspace/RostenRossDev-RostenRoss-Springboot-web/src/main/java/com/rostenross/springboot/app/models/entity/Cliente.java
 /workspace/RostenRossDev-RostenRoss-Springboot-web/src/main/java/com/rostenross/springboot/app/models/dao/IClienteDao.java
 /workspace/RostenRossDev-RostenRoss-Springboot-web/src/main/java/com/rostenross/springboot/app/SpringBootDataJpaApplication.java
+/workspace/RostenRossDev-RostenRoss-Springboot-web/src/main/java/com/rostenross/springboot/app/models/service/IClienteService.java
