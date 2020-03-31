@@ -13,32 +13,30 @@ public class ClienteServiceImpl implements IClienteService {
 
     @Autowired
     private IClienteDao clienteDao;
-
     @Override
     public List<Cliente> findAll() {
-
+        // TODO Auto-generated method stub
         return clienteDao.findAll();
     }
 
     @Override
     public void save(Cliente cliente) {
-
+        // TODO Auto-generated method stub
         clienteDao.save(cliente);
     }
 
     @Override
     public Cliente findOne(Long id) {
-
-        return clienteDao.findOne(id);
+        // TODO Auto-generated method stub
+        return findOne(id);
     }
 
     @Override
     public void delete(Long id) {
-
+        // TODO Auto-generated method stub
         clienteDao.delete(id);
     }
-    
-   
+
 
 
 }
