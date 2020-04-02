@@ -1,17 +1,12 @@
 package com.rostenross.springboot.app.models.dao;
 
-import java.util.List;
-
 import com.rostenross.springboot.app.models.entity.Cliente;
 
-public interface IClienteDao {
+import org.springframework.data.repository.CrudRepository;
 
-    public List<Cliente> findAll();
 
-    public void save(Cliente cliente);
+public interface IClienteDao extends CrudRepository <Cliente, Long>{
 
-    public Cliente findOne(Long id);
-
-    public void delete(Long id);
+    
 }
 
