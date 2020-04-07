@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.validation.Valid;
 
@@ -45,6 +46,7 @@ public class ClienteController {
     // @Qualifier("clienteDaoJPA")
     private IClienteService clienteService;
     private Logger log=LoggerFactory.getLogger(getClass());
+  
     @GetMapping(value = "/uploads/{filename:.+}")
     public ResponseEntity<Resource> verFoto(@PathVariable String filename) {
 
@@ -57,7 +59,6 @@ public class ClienteController {
                 throw new RuntimeException("Error no se puede cargar la imagen: "+pathFoto.toString());
             }
         } catch (MalformedURLException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         return ResponseEntity.ok()
@@ -109,15 +110,16 @@ public class ClienteController {
         }
 
         if (!foto.isEmpty()) {
-            String rootPath = "C://Temp/uploads";
-
+            String uniqueFileName= UUID.randomUUID().toString()+"_"+foto.getOriginalFilename();
+            Path rootPath = Paths.get("uploads").resolve(uniqueFileName);
+            Path rootAbsolutePath = rootPath.toAbsolutePath();
+            log.info("rootPath: "+rootPath);
+            log.info("rootAbsolutePath: "+rootAbsolutePath);
             try {
-                byte[] bytes = foto.getBytes();
-                Path rutaCompleta= Paths.get(rootPath+ "//"+foto.getOriginalFilename());
-                Files.write(rutaCompleta, bytes);
-                flash.addFlashAttribute("info", "Has subido correctamente '"+foto.getOriginalFilename()+"'!!");
+                Files.copy(foto.getInputStream(), rootAbsolutePath);
+                flash.addFlashAttribute("info", "Has subido correctamente '"+uniqueFileName+"'!!");
 
-                cliente.setFoto(foto.getOriginalFilename());
+                cliente.setFoto(uniqueFileName);
             } catch (IOException e) {
                 e.printStackTrace();
             }
