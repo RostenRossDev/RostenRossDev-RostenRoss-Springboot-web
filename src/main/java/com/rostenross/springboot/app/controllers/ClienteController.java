@@ -1,5 +1,6 @@
 package com.rostenross.springboot.app.controllers;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.nio.file.Files;
@@ -110,6 +111,15 @@ public class ClienteController {
         }
 
         if (!foto.isEmpty()) {
+            if (cliente.getId() != null && cliente.getFoto() != null && cliente.getFoto().length()>0) {
+                Path rootPath= Paths.get("uploads").resolve(cliente.getFoto()).toAbsolutePath();
+                File archivo = rootPath.toFile();
+                if (archivo.exists() && archivo.canRead()) {
+                    if (archivo.delete()) {
+                        flash.addAttribute("info","Foto: "+cliente.getFoto()+" eliminada con exito!!");
+                    }
+                }
+            }
             String uniqueFileName= UUID.randomUUID().toString()+"_"+foto.getOriginalFilename();
             Path rootPath = Paths.get("uploads").resolve(uniqueFileName);
             Path rootAbsolutePath = rootPath.toAbsolutePath();
@@ -133,11 +143,12 @@ public class ClienteController {
     }
 
     @RequestMapping(value="/form/{id}")
-    public String editar(@PathVariable(value="id")Long id, Map<String, Object> model,  RedirectAttributes flash){
+    public String editar(@PathVariable(value="id")Long id, Map<String, Object> model,
+                          RedirectAttributes flash){
         Cliente cliente=null;
-        if(id>0){
+        if(id > 0){
             cliente= clienteService.findOne(id);
-            if (cliente== null) {
+            if (cliente == null) {
                 flash.addFlashAttribute("error","El ID del cliente no existe en la base de datos!!");
                 return "redirect:/listar";
             }
@@ -151,8 +162,18 @@ public class ClienteController {
     }
 
     @RequestMapping(value="/eliminar/{id}")
-    public String eliminar(@PathVariable (value="id") Long id){
+    public String eliminar(@PathVariable (value="id") Long id,  RedirectAttributes flash){
         if (id>0) {
+            Cliente cliente=clienteService.findOne(id);
+            flash.addFlashAttribute("success", "Cliente eliminado con éxito!!");
+
+            Path rootPath= Paths.get("uploads").resolve(cliente.getFoto()).toAbsolutePath();
+            File archivo = rootPath.toFile();
+            if (archivo.exists() && archivo.canRead()) {
+                if (archivo.delete()) {
+                    flash.addFlashAttribute("info", "Foto: "+cliente.getFoto()+" eliminada con exito!!")
+                }
+            }
             clienteService.delete(id);;
         }
         return "redirect:/listar";
