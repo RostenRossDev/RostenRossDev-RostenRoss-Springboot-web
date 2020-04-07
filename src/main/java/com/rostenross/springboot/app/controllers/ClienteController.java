@@ -47,11 +47,12 @@ public class ClienteController {
     // @Qualifier("clienteDaoJPA")
     private IClienteService clienteService;
     private Logger log=LoggerFactory.getLogger(getClass());
-  
+    private final static String UPLOADs_FOLDER="uploads";
+
     @GetMapping(value = "/uploads/{filename:.+}")
     public ResponseEntity<Resource> verFoto(@PathVariable String filename) {
 
-        Path pathFoto = Paths.get("uploads").resolve(filename).toAbsolutePath();
+        Path pathFoto = Paths.get(UPLOADs_FOLDER).resolve(filename).toAbsolutePath();
         log.info("pathFoto: ", pathFoto);
         Resource recurso=null;
         try {
@@ -112,7 +113,7 @@ public class ClienteController {
 
         if (!foto.isEmpty()) {
             if (cliente.getId() != null && cliente.getFoto() != null && cliente.getFoto().length()>0) {
-                Path rootPath= Paths.get("uploads").resolve(cliente.getFoto()).toAbsolutePath();
+                Path rootPath= Paths.get(UPLOADs_FOLDER).resolve(cliente.getFoto()).toAbsolutePath();
                 File archivo = rootPath.toFile();
                 if (archivo.exists() && archivo.canRead()) {
                     if (archivo.delete()) {
@@ -121,7 +122,7 @@ public class ClienteController {
                 }
             }
             String uniqueFileName= UUID.randomUUID().toString()+"_"+foto.getOriginalFilename();
-            Path rootPath = Paths.get("uploads").resolve(uniqueFileName);
+            Path rootPath = Paths.get(UPLOADs_FOLDER).resolve(uniqueFileName);
             Path rootAbsolutePath = rootPath.toAbsolutePath();
             log.info("rootPath: "+rootPath);
             log.info("rootAbsolutePath: "+rootAbsolutePath);
@@ -167,11 +168,11 @@ public class ClienteController {
             Cliente cliente=clienteService.findOne(id);
             flash.addFlashAttribute("success", "Cliente eliminado con éxito!!");
 
-            Path rootPath= Paths.get("uploads").resolve(cliente.getFoto()).toAbsolutePath();
+            Path rootPath= Paths.get(UPLOADs_FOLDER).resolve(cliente.getFoto()).toAbsolutePath();
             File archivo = rootPath.toFile();
             if (archivo.exists() && archivo.canRead()) {
                 if (archivo.delete()) {
-                    flash.addFlashAttribute("info", "Foto: "+cliente.getFoto()+" eliminada con exito!!")
+                    flash.addFlashAttribute("info", "Foto: "+cliente.getFoto()+" eliminada con exito!!");
                 }
             }
             clienteService.delete(id);;
