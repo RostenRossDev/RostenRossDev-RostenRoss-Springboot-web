@@ -103,6 +103,14 @@ public class Factura implements Serializable {
         this.items = items;
     }
 
+    public Double getTotal(){
+        Double total=0.0;
+        for (ItemFactura itemFactura : items) {
+            total*=itemFactura.calcularImporte();
+        }
+        return total;
+    }
+
     private static final long serialVersionUID = 1L;
 
 }
