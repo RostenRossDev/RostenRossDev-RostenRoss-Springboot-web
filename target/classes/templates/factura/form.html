@@ -13,15 +13,24 @@
                 <h4 class="card-title"></h4>
 
                 <form th:action="@{/factura/form/}" th:object="${factura}" method="post">
+                    <div class="col-sm-6">
+                        <input th:value="${factura.cliente.nombre}+' '+${factura.cliente.apellido}" disabled='disabled' class="form-control"/>
+                    </div>
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label" th:text="'Descripcion'"></label>
                         <input type="text" th:field="*{descripcion}" class="form-control"/>
 
 
                     </div>
-                    <textarea th:field="*{observacion}" class="form-control"></textarea>
 
-                    <input type="submit" th:value="${titulo}" class="btn btn-secondary" />
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" th:text="Observacion"></label>
+                        <textarea th:field="*{observacion}" class="form-control"></textarea>
+                    </div>
+
+                    <div class="form-group row">
+                        <input type="submit" th:value="${titulo}" class="btn btn-secondary" />
+                    </div>
                 </form>
 
 
