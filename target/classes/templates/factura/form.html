@@ -17,14 +17,14 @@
                         <input th:value="${factura.cliente.nombre}+' '+${factura.cliente.apellido}" disabled='disabled' class="form-control"/>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" th:text="'Descripcion'"></label>
+                        <label class="col-sm-2 col-form-label" th:text="'Descripción'"></label>
                         <input type="text" th:field="*{descripcion}" class="form-control"/>
 
 
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" th:text="Observacion"></label>
+                        <label class="col-sm-2 col-form-label" th:text="Observación"></label>
                         <textarea th:field="*{observacion}" class="form-control"></textarea>
                     </div>
 
