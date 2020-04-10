@@ -45,9 +45,9 @@ public class Cliente implements Serializable {
 
     private String foto;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL) //cascade: HACE LAS OPERACIONES delete o persiste en cadena, en cascada, ej: cuando el cliente guarde varias factura el cliente se persiste automaticamente y todos sus hijos
+    @OneToMany(mappedBy="cliente",fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true) //cascade: HACE LAS OPERACIONES delete o persiste en cadena, en cascada, ej: cuando el cliente guarde varias factura el cliente se persiste automaticamente y todos sus hijos
     private List<Factura> facturas; // o si se elimina tambien se eliminan en cadena todos sus hijos
-
+    //mappedBy crea la llave foranea para relacionar las tablas.
     private static final long serialVersionUID = 1L;
 
     public Cliente(){
