@@ -30,7 +30,7 @@ public class Factura implements Serializable {
 
     private String descripcion;
 
-    private String observavion;
+    private String observacion;
 
     @Column(name = "create_at")
     @Temporal(TemporalType.DATE)
@@ -68,12 +68,12 @@ public class Factura implements Serializable {
         this.descripcion = descripcion;
     }
 
-    public String getObservavion() {
-        return observavion;
+    public String getObservacion() {
+        return observacion;
     }
 
-    public void setObservavion(String observavion) {
-        this.observavion = observavion;
+    public void setObservacion(String observacion) {
+        this.observacion = observacion;
     }
 
     public Date getCreateAt() {

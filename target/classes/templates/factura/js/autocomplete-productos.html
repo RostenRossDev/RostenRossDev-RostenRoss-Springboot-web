@@ -6,13 +6,13 @@
             $("#buscar_producto").autocomplete({
                 source: function(request, response){
                     $.ajax({
-                        url:"/factura/cargar-productos/" + request.term,
+                        url:"/factura/cargar-producto/" + request.term,
                         dataType: "json",
                         data: {
                             term: request.term
                         },
                         success: function(data){
-                            response($.map(data, funtion(item){
+                            response($.map(data, function(item){
                                 return {
                                     value: item.id,
                                     label: item.nombre,
@@ -22,8 +22,8 @@
                         },
                     });
                 },
-                select: function(event, ui){
-                    //$(#buscar_producto).val(ui.item.label);
+                select : function(event, ui){
+                    $("#buscar_producto").val(ui.item.label);
 
                     var linea = $("#plantillaItemsFactura").html();
 
@@ -33,14 +33,12 @@
 
                     linea= linea.replace(/{PRECIO}/g, ui.item.precio);
 
-                    $("#cargarItemProducos tbody").append(linea);
+                    $("#cargarItemProductos tbody").append(linea);
 
                     return false;
                 }
             });
-        }
-
-        )
+        });
     </script>
 </body>
 </html>

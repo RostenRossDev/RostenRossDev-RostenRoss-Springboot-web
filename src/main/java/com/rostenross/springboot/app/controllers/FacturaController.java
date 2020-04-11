@@ -36,13 +36,13 @@ public class FacturaController {
         }
         Factura factura= new  Factura();
         factura.setCliente(cliente);
-        model.put("fatura", factura);
+        model.put("factura", factura);
         model.put("titulo", "Crear Factura");
 
         return "factura/form";
     }
     
-    @GetMapping(value="/cargar-producto/{term}", produces={"aplication/json"})
+    @GetMapping(value="/cargar-producto/{term}", produces={"application/json"})
     public @ResponseBody List<Producto> cargarProductos(@PathVariable String term){
         return clienteService.findByNombre(term);
     }
