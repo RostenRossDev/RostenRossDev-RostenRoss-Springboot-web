@@ -6,6 +6,7 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
@@ -17,7 +18,7 @@ import javax.persistence.TemporalType;
 public class Producto implements Serializable{
     private final static long serialVersionUID=1L;
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String nombre;
@@ -27,7 +28,10 @@ public class Producto implements Serializable{
     @Temporal(TemporalType.DATE)
     @Column(name="create_at")
     private Date createAt;
-    @PrePersist
+
+    public Producto (){}
+        @PrePersist
+
     public void prePersist() {
         createAt = new Date();
     }
