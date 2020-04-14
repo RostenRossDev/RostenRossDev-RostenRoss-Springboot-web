@@ -32,7 +32,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr th:each="factura: ${cliente.facturas}"></tr>
+                        <tr th:each="factura : ${cliente.facturas}"></tr>
                         <td th:text="${factura.id}"></td>
                         <td th:text="${factura.descripcion}"></td>
                         <td th:text="${factura.createAt}"></td>

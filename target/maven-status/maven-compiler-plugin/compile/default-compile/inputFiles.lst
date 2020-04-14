@@ -2,12 +2,13 @@
 /workspace/RostenRossDev-RostenRoss-Springboot-web/src/main/java/com/rostenross/springboot/app/controllers/ClienteController.java
 /workspace/RostenRossDev-RostenRoss-Springboot-web/src/main/java/com/rostenross/springboot/app/models/service/ClienteServiceImpl.java
 /workspace/RostenRossDev-RostenRoss-Springboot-web/src/main/java/com/rostenross/springboot/app/util/paginator/PageItem.java
-/workspace/RostenRossDev-RostenRoss-Springboot-web/src/main/java/com/rostenross/springboot/app/models/entity/Cliente.java
 /workspace/RostenRossDev-RostenRoss-Springboot-web/src/main/java/com/rostenross/springboot/app/models/entity/ItemFactura.java
+/workspace/RostenRossDev-RostenRoss-Springboot-web/src/main/java/com/rostenross/springboot/app/models/entity/Cliente.java
 /workspace/RostenRossDev-RostenRoss-Springboot-web/src/main/java/com/rostenross/springboot/app/models/entity/Producto.java
+/workspace/RostenRossDev-RostenRoss-Springboot-web/src/main/java/com/rostenross/springboot/app/models/dao/IFacturaDao.java
 /workspace/RostenRossDev-RostenRoss-Springboot-web/src/main/java/com/rostenross/springboot/app/models/dao/IProductoDao.java
-/workspace/RostenRossDev-RostenRoss-Springboot-web/src/main/java/com/rostenross/springboot/app/models/service/IUploadFileService.java
 /workspace/RostenRossDev-RostenRoss-Springboot-web/src/main/java/com/rostenross/springboot/app/models/service/IClienteService.java
+/workspace/RostenRossDev-RostenRoss-Springboot-web/src/main/java/com/rostenross/springboot/app/models/service/IUploadFileService.java
 /workspace/RostenRossDev-RostenRoss-Springboot-web/src/main/java/com/rostenross/springboot/app/models/entity/Factura.java
 /workspace/RostenRossDev-RostenRoss-Springboot-web/src/main/java/com/rostenross/springboot/app/controllers/FacturaController.java
 /workspace/RostenRossDev-RostenRoss-Springboot-web/src/main/java/com/rostenross/springboot/app/models/service/UploadFileServiceImpl.java

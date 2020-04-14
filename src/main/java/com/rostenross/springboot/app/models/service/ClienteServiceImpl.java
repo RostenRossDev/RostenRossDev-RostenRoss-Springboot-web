@@ -3,8 +3,10 @@ package com.rostenross.springboot.app.models.service;
 import java.util.List;
 
 import com.rostenross.springboot.app.models.dao.IClienteDao;
+import com.rostenross.springboot.app.models.dao.IFacturaDao;
 import com.rostenross.springboot.app.models.dao.IProductoDao;
 import com.rostenross.springboot.app.models.entity.Cliente;
+import com.rostenross.springboot.app.models.entity.Factura;
 import com.rostenross.springboot.app.models.entity.Producto;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,8 @@ public class ClienteServiceImpl implements IClienteService {
     @Autowired
     private IProductoDao productoDao;
 
+    @Autowired
+    private IFacturaDao facturaDdao;
     @Override
     @Transactional(readOnly = true)
     public List<Cliente> findAll() {
@@ -53,11 +57,24 @@ public class ClienteServiceImpl implements IClienteService {
         return clienteDao.findAll(pageable);
     }
 
-	@Override
-	public List<Producto> findByNombre(String term) {
+    @Override
+    public List<Producto> findByNombre(String term) {
 
-        return productoDao.findByNombreLikeIgnoreCase("%"+term+"%");
-	}
+        return productoDao.findByNombreLikeIgnoreCase("%" + term + "%");
+    }
+
+    @Override
+    @Transactional
+    public void saveFactura(Factura factura) {
+        facturaDdao.save(factura);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Producto findProductoById(Long id) {
+
+        return productoDao.findById(id).orElse(null);
+    }
 
 
 
