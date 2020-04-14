@@ -11,6 +11,8 @@ import com.rostenross.springboot.app.models.service.IClienteService;
 import com.rostenross.springboot.app.models.service.IUploadFileService;
 import com.rostenross.springboot.app.util.paginator.PageRender;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.data.domain.Page;
@@ -36,6 +38,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 @SessionAttributes("cliente")
 public class ClienteController {
+    private final Logger log= LoggerFactory.getLogger(getClass());
     @Autowired
     // @Qualifier("clienteDaoJPA")
     private IClienteService clienteService;
@@ -59,9 +62,12 @@ public class ClienteController {
     public String ver(@PathVariable(value="id") Long id, Map<String, Object> model, RedirectAttributes flash){
 
         Cliente cliente = clienteService.findOne(id);
+        log.info("Id cliente: "+ id);
         if (cliente==null) {
             flash.addFlashAttribute("error", "El cliente no existe en la base de datos!!");
             return "redirect:/listar";
+        }else{
+            log.info("cliente facturas: "+cliente.getFacturas());
         }
 
         model.put("cliente", cliente);

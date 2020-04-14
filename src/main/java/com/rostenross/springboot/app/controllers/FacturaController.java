@@ -9,6 +9,8 @@ import com.rostenross.springboot.app.models.entity.ItemFactura;
 import com.rostenross.springboot.app.models.entity.Producto;
 import com.rostenross.springboot.app.models.service.IClienteService;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,6 +27,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RequestMapping("/factura")
 @SessionAttributes("factura")
 public class FacturaController {
+    private final Logger log= LoggerFactory.getLogger(getClass());
+
     @Autowired
     private IClienteService clienteService;
     
@@ -62,6 +66,7 @@ public class FacturaController {
             linea.setCantidad(cantidad[i]);
             linea.setProducto(producto);
             factura.addItemFactura(linea);
+            log.info("id: "+itemId[i].toString()+", cantidad: "+cantidad[i].toString());
         }
         clienteService.saveFactura(factura);
         
