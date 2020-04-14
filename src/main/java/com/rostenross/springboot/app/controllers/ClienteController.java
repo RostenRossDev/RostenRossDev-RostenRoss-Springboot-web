@@ -66,8 +66,6 @@ public class ClienteController {
         if (cliente==null) {
             flash.addFlashAttribute("error", "El cliente no existe en la base de datos!!");
             return "redirect:/listar";
-        }else{
-            log.info("cliente facturas: "+cliente.getFacturas());
         }
 
         model.put("cliente", cliente);

@@ -18,6 +18,7 @@ import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotEmpty;
 import javax.persistence.CascadeType;
 
 @Entity
@@ -28,6 +29,7 @@ public class Factura implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotEmpty
     private String descripcion;
 
     private String observacion;
@@ -109,8 +111,9 @@ public class Factura implements Serializable {
     public Double getTotal(){
         Double total=0.0;
         for (ItemFactura itemFactura : items) {
-            total*=itemFactura.calcularImporte();
+            total +=itemFactura.calcularImporte();
         }
+        System.out.println("Precio total: "+total);
         return total;
     }
 
