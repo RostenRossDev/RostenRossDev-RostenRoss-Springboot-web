@@ -40,7 +40,8 @@ public class FacturaController {
     public String ver(@PathVariable(value="id") Long id, 
             Model model, RedirectAttributes flash){
         
-        Factura factura= clienteService.findFacturaById(id);
+        Factura factura= clienteService.fetchByIdWithClienteWithItemFacturaWithProducto(id); //clienteService.findFacturaById(id);
+        //Se reemplaza el metodo findFacturaById por fetchByIdWithClienteWithItemFacturaWithProducto, debido a que la primera hace 7 consultas y la ultima solo 1
         if (factura == null) {
             flash.addFlashAttribute("error","La factura no existe en la base de datos");
             return "redirect:/lsitar";
