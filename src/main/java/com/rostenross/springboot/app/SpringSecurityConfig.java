@@ -1,8 +1,7 @@
 package com.rostenross.springboot.app;
 
-import javax.sql.DataSource;
-
 import com.rostenross.springboot.app.authhandler.LoginSuccesHandler;
+import com.rostenross.springboot.app.models.service.JpaUserDetailsService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -18,23 +17,14 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     private BCryptPasswordEncoder passwordEncoder;
     @Autowired
     private LoginSuccesHandler successHandler;
-
     @Autowired
-    DataSource dataSource;
-
+    private JpaUserDetailsService userDetailsService;
+    
     @Autowired
     public void configuredGlobal(AuthenticationManagerBuilder builder) throws Exception {
-        builder.jdbcAuthentication()
-        .dataSource(dataSource)
-        .passwordEncoder(passwordEncoder)
-        .usersByUsernameQuery("select username, password, enabled from users where username=?")
-        .authoritiesByUsernameQuery("select u.username, a.authority from authorities a inner join users u on (a.user_id=u.id) where u.username=?");
+        builder.userDetailsService(userDetailsService)
+        .passwordEncoder(passwordEncoder);
 
-        /*PasswordEncoder encoder = this.passwordEncoder;
-        UserBuilder users = User.builder().passwordEncoder(encoder::encode);
-
-        builder.inMemoryAuthentication().withUser(users.username("admin").password("1234").roles("ADMIN", "USER"))
-                .withUser(users.username("user").password("1234").roles("USER"));*/
     }
 
     @Override

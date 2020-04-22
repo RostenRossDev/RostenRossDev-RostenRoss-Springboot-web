@@ -1,37 +1,3 @@
-/*
-CREATE TABLE `remotemysql.com/SuqyclMxYi`.`users`(
-    `id` INT NOT NULL AUTO_INCREMENT,
-    `username` VARCHAR(45) NOT NULL,
-    `password` VARCHAR(60) NOT NULL,
-    `enabled` TINYINT(1) NO NULL DEFAULT 1,
-    PRIMARY KEY (`id`),
-    UNIQUE INDEX `username_UNIQUE`(`USERNAME` ASC)
-    );
-
-CREATE TABLE `remotemysql.com/SuqyclMxYi`.`authorities`(
-    `id` INT NOT NULL AUTO_INCREMENT,
-    `user_id` INT NOT NULL,
-    `authority` VARCHAR(45) NOT NULL,
-    PRIMARY KEY (`id`),
-    UNIQUE KEY `user_id_authority_unique` (`user_id` ASC, 'authority' ASC),
-    CONSTRAINT `fk_authorities_users`
-        FOREIGN KEY (`user_id`)
-        REFERENCES `remotemysql.com/SuqyclMxYi`.`users`(`id`)
-        ON DELETE CASCADE
-        ON UPDATE CASCADE
-);
-*/
-/*populate table users*/
-
-INSERT INTO users(username, password, enabled) VALUES('andres','$2a$10$OJyrU2PvsoZQlIW/QTQjY.gxSWQ.D1fU3OK7RkbUpFjq9lKAlDpI.',1);
-INSERT INTO users(username, password, enabled) VALUES('admin','$2a$10$z5T3.yyZ20aKFJAoeX3efeixy6HxQYSWPm1Qzvw75mWfjpHMQbMoK',1);
-
-/*populated table authorities*/
-
-INSERT INTO authorities (user_id, authority) VALUES (1, 'ROLE_USER');
-INSERT INTO authorities (user_id, authority) VALUES (2, 'ROLE_USER');
-INSERT INTO authorities (user_id, authority) VALUES (2, 'ROLE_ADMIN');
-
 /*populate table clientes*/
 
 INSERT INTO clientes (nombre, apellido, email, create_at, foto) VALUES ('Andres', 'Guzman', 'profesor@bolsadeideas.com', '2017-08-01', '');
@@ -77,3 +43,13 @@ INSERT INTO facturas_items (cantidad, factura_id, producto_id) VALUES (1,1,7);
 INSERT INTO facturas (descripcion, observacion, cliente_id, create_at) VALUES ('Factura Bicicleta','Alguna nota importante', 1, NOW());
 INSERT INTO facturas_items (cantidad, factura_id, producto_id) VALUES (3,2,6);
 
+/*populate table users*/
+
+INSERT INTO `users`(username, password, enabled) VALUES('andres','$2a$10$OJyrU2PvsoZQlIW/QTQjY.gxSWQ.D1fU3OK7RkbUpFjq9lKAlDpI.',1);
+INSERT INTO `users`(username, password, enabled) VALUES('admin','$2a$10$z5T3.yyZ20aKFJAoeX3efeixy6HxQYSWPm1Qzvw75mWfjpHMQbMoK',1);
+
+/*populate table authorities*/
+
+INSERT INTO `authorities` (user_id, authority) VALUES (1, 'ROLE_USER');
+INSERT INTO `authorities` (user_id, authority) VALUES (2, 'ROLE_USER');
+INSERT INTO `authorities` (user_id, authority) VALUES (2, 'ROLE_ADMIN');
