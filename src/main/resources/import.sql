@@ -1,4 +1,5 @@
-CREATE TABLE `SuqyclMxYi`.`users`(
+/*
+CREATE TABLE `remotemysql.com/SuqyclMxYi`.`users`(
     `id` INT NOT NULL AUTO_INCREMENT,
     `username` VARCHAR(45) NOT NULL,
     `password` VARCHAR(60) NOT NULL,
@@ -7,7 +8,7 @@ CREATE TABLE `SuqyclMxYi`.`users`(
     UNIQUE INDEX `username_UNIQUE`(`USERNAME` ASC)
     );
 
-CREATE TABLE `SuqyclMxYi`.`authorities`(
+CREATE TABLE `remotemysql.com/SuqyclMxYi`.`authorities`(
     `id` INT NOT NULL AUTO_INCREMENT,
     `user_id` INT NOT NULL,
     `authority` VARCHAR(45) NOT NULL,
@@ -15,10 +16,11 @@ CREATE TABLE `SuqyclMxYi`.`authorities`(
     UNIQUE KEY `user_id_authority_unique` (`user_id` ASC, 'authority' ASC),
     CONSTRAINT `fk_authorities_users`
         FOREIGN KEY (`user_id`)
-        REFERENCES `SuqyclMxYi`.`users`(`id`)
+        REFERENCES `remotemysql.com/SuqyclMxYi`.`users`(`id`)
         ON DELETE CASCADE
         ON UPDATE CASCADE
 );
+*/
 /*populate table users*/
 
 INSERT INTO users(username, password, enabled) VALUES('andres','$2a$10$OJyrU2PvsoZQlIW/QTQjY.gxSWQ.D1fU3OK7RkbUpFjq9lKAlDpI.',1);
