@@ -12,6 +12,7 @@ public class LocaleController {
     public String locale(HttpServletRequest request){
 
         String ultimaUrl = request.getHeader("referer");
+        
         return "redirect:".concat(ultimaUrl);
     }
     
