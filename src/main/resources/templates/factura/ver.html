@@ -11,7 +11,8 @@
 
                 <h4 class="card-title">
                     <a th:href="@{'/ver/' + ${factura.cliente.id}}" class="btn btn-light btn-xs">&laquo; vovler</a>
-                    <a class="btn btn-danger btn-xs float-right" th:href="@{'/factura/ver/'+${factura.id}(format=pdf)}">Exportar a PDF</a>
+                    <a class="btn btn-danger btn-xs float-rightmx-2" th:href="@{'/factura/ver/'+${factura.id}(format=pdf)}">Exportar a PDF</a>
+                    <a class="btn btn-success btn-xs float-right" th:href="@{'/factura/ver/'+${factura.id}(format=xlsx)}">Exportar a XLS</a>
                 </h4>
 
                 <ul class="list-group my-2">
