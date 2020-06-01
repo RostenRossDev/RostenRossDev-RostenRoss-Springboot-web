@@ -45,7 +45,7 @@ INSERT INTO facturas_items (cantidad, factura_id, producto_id) VALUES (3,2,6);
 
 /*populate table users*/
 
-INSERT INTO `users`(username, password, enabled) VALUES('andres','$2a$10$OJyrU2PvsoZQlIW/QTQjY.gxSWQ.D1fU3OK7RkbUpFjq9lKAlDpI.',1);
+INSERT INTO `users`(username, password, enabled) VALUES('user','$2a$10$OJyrU2PvsoZQlIW/QTQjY.gxSWQ.D1fU3OK7RkbUpFjq9lKAlDpI.',1);
 INSERT INTO `users`(username, password, enabled) VALUES('admin','$2a$10$z5T3.yyZ20aKFJAoeX3efeixy6HxQYSWPm1Qzvw75mWfjpHMQbMoK',1);
 
 /*populate table authorities*/

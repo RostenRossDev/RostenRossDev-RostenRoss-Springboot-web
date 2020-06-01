@@ -2,8 +2,8 @@
 /workspace/RostenRossDev-RostenRoss-Springboot-web/src/main/java/com/rostenross/springboot/app/util/paginator/PageItem.java
 /workspace/RostenRossDev-RostenRoss-Springboot-web/src/main/java/com/rostenross/springboot/app/authhandler/LoginSuccesHandler.java
 /workspace/RostenRossDev-RostenRoss-Springboot-web/src/main/java/com/rostenross/springboot/app/SpringSecurityConfig.java
-/workspace/RostenRossDev-RostenRoss-Springboot-web/src/main/java/com/rostenross/springboot/app/models/dao/IFacturaDao.java
 /workspace/RostenRossDev-RostenRoss-Springboot-web/src/main/java/com/rostenross/springboot/app/models/entity/Producto.java
+/workspace/RostenRossDev-RostenRoss-Springboot-web/src/main/java/com/rostenross/springboot/app/models/dao/IFacturaDao.java
 /workspace/RostenRossDev-RostenRoss-Springboot-web/src/main/java/com/rostenross/springboot/app/models/dao/IProductoDao.java
 /workspace/RostenRossDev-RostenRoss-Springboot-web/src/main/java/com/rostenross/springboot/app/models/service/IUploadFileService.java
 /workspace/RostenRossDev-RostenRoss-Springboot-web/src/main/java/com/rostenross/springboot/app/models/service/JpaUserDetailsService.java
@@ -12,9 +12,9 @@
 /workspace/RostenRossDev-RostenRoss-Springboot-web/src/main/java/com/rostenross/springboot/app/models/dao/IClienteDao.java
 /workspace/RostenRossDev-RostenRoss-Springboot-web/src/main/java/com/rostenross/springboot/app/SpringBootDataJpaApplication.java
 /workspace/RostenRossDev-RostenRoss-Springboot-web/src/main/java/com/rostenross/springboot/app/view/pdf/FacturaPdfView.java
-/workspace/RostenRossDev-RostenRoss-Springboot-web/src/main/java/com/rostenross/springboot/app/controllers/ClienteController.java
-/workspace/RostenRossDev-RostenRoss-Springboot-web/src/main/java/com/rostenross/springboot/app/models/entity/Role.java
 /workspace/RostenRossDev-RostenRoss-Springboot-web/src/main/java/com/rostenross/springboot/app/MvcConfig.java
+/workspace/RostenRossDev-RostenRoss-Springboot-web/src/main/java/com/rostenross/springboot/app/models/entity/Role.java
+/workspace/RostenRossDev-RostenRoss-Springboot-web/src/main/java/com/rostenross/springboot/app/controllers/ClienteController.java
 /workspace/RostenRossDev-RostenRoss-Springboot-web/src/main/java/com/rostenross/springboot/app/controllers/LocaleController.java
 /workspace/RostenRossDev-RostenRoss-Springboot-web/src/main/java/com/rostenross/springboot/app/models/entity/ItemFactura.java
 /workspace/RostenRossDev-RostenRoss-Springboot-web/src/main/java/com/rostenross/springboot/app/models/entity/Cliente.java
